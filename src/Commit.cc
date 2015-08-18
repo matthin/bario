@@ -5,8 +5,8 @@
 
 namespace ba {
 
-Commit::Commit(const std::vector<Contrast> contrasts)
-  : contrasts(contrasts), id(generateID()) {}
+Commit::Commit(const std::vector<Contrast> contrasts, const std::string& email)
+  : contrasts(contrasts), email(email), id(generateID()) {}
 
 std::string Commit::generateID() const noexcept {
   std::string preHashedMessage;
