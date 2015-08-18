@@ -7,8 +7,12 @@ namespace ba {
 
 class Commit {
 public:
-  Commit(const std::vector<Contrast> contrasts) : contrasts(contrasts) {}
+  Commit(const std::vector<Contrast> contrasts);
+
+  std::string generateID() const noexcept;
+
   const std::vector<Contrast> contrasts;
+  const std::string id;
 };
 
 } // namespace ba

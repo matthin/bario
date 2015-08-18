@@ -10,3 +10,10 @@ TEST_CASE("Commit stores required data", "[Commit]") {
   REQUIRE(commit.contrasts == contrasts);
 }
 
+TEST_CASE("Commit creates ID") {
+  const ba::Commit commit({
+    ba::Contrast("index.html", "Hello")
+  });
+  REQUIRE(commit.id.length() > 0);
+}
+

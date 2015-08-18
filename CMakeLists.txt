@@ -11,6 +11,11 @@ add_library(
   ${barioSourceFiles}
 )
 
+target_link_libraries(
+  bario
+  crypto
+)
+
 ADD_DEFINITIONS(-std=c++11)
 SET(CMAKE_EXE_LINKER_FLAGS "-pthread")
 
