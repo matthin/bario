@@ -9,7 +9,7 @@ Commit::Commit(const std::vector<Contrast> contrasts, const std::string& email)
   : contrasts(contrasts), email(email), id(generateID()) {}
 
 std::string Commit::generateID() const noexcept {
-  std::string preHashedMessage;
+  std::string preHashedMessage(email);
   for (const auto contrast : contrasts) {
     preHashedMessage += contrast.modifiedText;
   }
