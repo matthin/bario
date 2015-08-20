@@ -6,10 +6,11 @@
 namespace ba {
 
 Commit::Commit(const std::vector<Contrast> contrasts, const std::string& email)
-  : contrasts(contrasts), email(email), id(generateID()) {}
+  : contrasts(contrasts), email(email), id(generateID()),
+    date(generateDate()) {}
 
 std::string Commit::generateID() const noexcept {
-  std::string preHashedMessage(email);
+  std::string preHashedMessage(email + std::to_string(date));
   for (const auto contrast : contrasts) {
     preHashedMessage += contrast.modifiedText;
   }

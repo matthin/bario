@@ -1,6 +1,7 @@
 #include <catch.hpp>
 #include "Commit.h"
 #include <string>
+#include <sys/time.h>
 #include <vector>
 
 TEST_CASE("Commit stores required data", "[Commit]") {
@@ -18,5 +19,14 @@ TEST_CASE("Commit creates ID") {
     ba::Contrast("index.html", "Hello")
   }, "example@test.com");
   REQUIRE(commit.id.length() > 0);
+}
+
+TEST_CASE("Commit creates date") {
+  const auto startDate = time(NULL);
+  const ba::Commit commit({
+    ba::Contrast("index.html", "Hello")
+  }, "example@test.com");
+  const auto endDate = time(NULL);
+  REQUIRE(startDate <= commit.date <= endDate);
 }
 
