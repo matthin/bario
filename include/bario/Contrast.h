@@ -6,7 +6,7 @@ namespace ba {
 
 struct Contrast {
 public:
-  Contrast(const std::string& file, const std::string& modifiedText)
+  Contrast(const std::string& file, const std::string& modifiedText) noexcept
     : file(std::move(file)), modifiedText(std::move(modifiedText)) {}
 
   const std::string file;
