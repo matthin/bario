@@ -1,6 +1,6 @@
 #pragma once
 
-#include <sys/time.h>
+#include <ctime>
 #include <vector>
 #include "Contrast.h"
 
@@ -13,14 +13,14 @@ public:
   ) noexcept;
 
   std::string generateID() const noexcept;
-  unsigned long generateDate() const noexcept {
-    return time(NULL);
+  std::time_t generateDate() const noexcept {
+    return std::time(nullptr);
   }
 
   const std::vector<Contrast> contrasts;
   const std::string email;
   const std::string id;
-  const unsigned long date;
+  const std::time_t date;
 };
 
 } // namespace ba

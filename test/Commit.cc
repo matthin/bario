@@ -1,7 +1,7 @@
 #include <catch.hpp>
 #include "Commit.h"
+#include <ctime>
 #include <string>
-#include <sys/time.h>
 #include <vector>
 
 TEST_CASE("Commit stores required data", "[Commit]") {
@@ -22,11 +22,11 @@ TEST_CASE("Commit creates ID") {
 }
 
 TEST_CASE("Commit creates date") {
-  const auto startDate = time(NULL);
+  const auto startDate = std::time(nullptr);
   const ba::Commit commit({
     ba::Contrast("index.html", "Hello")
   }, "example@test.com");
-  const auto endDate = time(NULL);
+  const auto endDate = std::time(nullptr);
   REQUIRE(startDate <= commit.date <= endDate);
 }
 
